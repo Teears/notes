@@ -90,4 +90,36 @@ alias f= "find/ -name" 方便全盘查找
 用来在指定目录下查找文件,并且将查找到的子目录和文件全部进行显示。  
   * find 和管道  
   * find 和xargs  
-  
+* **locate**  
+搜素包含特定字符串的文件及目录  
+* **grep**
+搜索文件中包含指定字符串的行  
+## 时间及日期  
+* date  
+* cal  
+* ntpdate time.nist.gov 和时间域名同步  
+## 打包压缩  
+打包指归档文件，压缩是将一个大的文件通过压缩算法变成一个小文件  
+* **tar**  
+“-z” : 同时用gzip压缩  
+“-j” : 同时用bzip2压缩  
+“-x” : 解包或者解压缩  
+“-t” : 查看tar包里面的文件  
+“-c” : 建立一个tar包或者压缩文件包  
+“-v” : 可视化  
+“-f” : 后面跟文件名，压缩时跟 “-f 文件名”，意思是压缩后的文件名为filename, 解压时跟 “-f 文件名”，意思是解压filename. 请注意，如果是多个参数组合的情况下带有 “-f”，请把 “-f” 写到最后面。  
+  * 常用压缩组合 czvf  
+  * 常见结尾 .tar.gz  
+  * 常用解压组合 xzvf  
+* **zip unzip**  
+zip -r archive_name.zip directory_to_compress  
+unzip archive_name.zip  
+* **gzip**  
+压缩：gzip test.tar  
+解压：gzip –d archive_name.gz  
+* **bzip2**  
+压缩：bzip2 -z  
+解压：bzip2 -d  
+* **xz**
+压缩率之王  
+## 
