@@ -120,6 +120,45 @@ unzip archive_name.zip
 * **bzip2**  
 压缩：bzip2 -z  
 解压：bzip2 -d  
-* **xz**
+* **xz**  
 压缩率之王  
-## 
+## 软件安装  
+* **rpm**  
+* **\*tar.gz**
+* **yum**  
+  * 安装  
+yum install package1 安装指定的安装包package1  
+yum groupinsall group1 安装程序组group1
+  * 升级  
+yum update 全部更新  
+yum update package 更新指定程序包package  
+yum check-update 检查可更新的程序  
+yum upgrade package 升级指定程序包package  
+yum groupupdate group 升级程序组group  
+  * 查找和显示  
+yum info package 显示安装包信息package  
+yum list 显示所有已经安装和可以安装的程序包  
+yum list package 显示指定程序包安装情况package  
+yum search string 根据关键字string查找安装包  
+  * 卸载程序  
+yum remove package 删除程序包package  
+yum groupremove group 删除程序组group  
+yum deplist package 查看程序package依赖情况  
+  *  清除缓存  
+yum clean packages 清除缓存目录下的软件包  
+## 网络常用命令  
+net-tools和traceroute需要自己安装  
+* **查看ip地址**  
+ ip addr 显示网卡IP信息  
+ ip route list 查看路由信息  
+* **查看网络连通性**  
+ ping  
+* **联网状态**  
+netstat  
+* **查看或设置路由表 **  
+route  
+* **查看或临时修改主机名**  
+hostname  
+* **查看当前主机到目的主机经过的节点**  
+traceroute  
+## shell使用  
