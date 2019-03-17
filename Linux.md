@@ -8,7 +8,7 @@ some notes for Linux
 [软件安装](#软件安装)  
 [网络常用命令](#网络常用命令)  
 [shell使用](#shell使用)  
-[vi](#)  
+[vi/vim](#vi/vim)  
 
 ## 一些热键
 Ctrl+C 退出前台执行程序  
@@ -193,7 +193,7 @@ dd if=\[STDIN\] of=\[STDOUT\]
 command <<limit_string  
 here documents  
 limit_string  
-## vi
+## vi/vim
 yum -y install vim-enhanced  
 默认配置文件位置 /etc/vimrc  
 同样值得推荐的文本编辑器还有Emacs,以及轻量级的nano
