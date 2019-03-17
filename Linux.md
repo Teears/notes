@@ -1,6 +1,14 @@
 # notes
-some notes for Linux
+some notes for Linux  
 
+[基本操作](#基本操作)  
+[文件及目录](#文件及目录)  
+[时间及日期](#时间及日期)  
+[打包压缩](#打包压缩)  
+[软件安装](#软件安装)  
+[网络常用命令](#网络常用命令)  
+[shell使用](#shell使用)  
+[vi](#)  
 
 ## 一些热键
 Ctrl+C 退出前台执行程序  
@@ -8,7 +16,7 @@ Ctrl+D 离当前shell
 Ctrl+L 清屏  
 Tab:按一次 命令后自动补全  
 Tab:按两次列出以输入开头的所有命令  
-## 常用命令  
+## 基本操作  
 * **帮助**  
 command --help  
 man command  
@@ -162,3 +170,53 @@ hostname
 * **查看当前主机到目的主机经过的节点**  
 traceroute  
 ## shell使用  
+标准输入 0  
+标准输出 1  
+标准错误 2  
+* **历史命令**
+history  
+!  
+* **dd**  
+dd if=\[STDIN\] of=\[STDOUT\]
+用指定大小的块拷贝一个文件，拷贝的同时进行指定的转换  
+  * 将本地的/dev/sdb1整盘备份到/root/image  
+  dd if=/dev/sdb1 of=/root/image  
+  * 将备份文件恢复到指定盘  
+  dd if=/root/image of=/dev/hdb  
+  * 备份/dev/sdb全盘数据，利用gzip工具压缩并保存到指定路径  
+  dd if=/dev/sdb | gzip > /root/image.gz  
+* **空设备**  
+/dev/null  
+* **zero设备**  
+/dev/zero  
+* **重定向**  
+command <<limit_string  
+here documents  
+limit_string  
+## vi
+* 模式切换  
+： i Esc  
+* 退出  
+命令模式：ZZ (保存退出），ZQ(直接退出）  
+末行模式：q(直接退出)，q！(强制退出)， wq(保存退出）  
+* 显示行号  
+:set number  
+:set nu  
+* 移动光标  
+  * 方向键  
+  *  Home : 光标移动到本行行首  
+  End : 光标移动到本行行尾  
+  *  nG : 转到行号位置  
+  G : 转到文件最后一行  
+  gg : 转到文件第一行  
+  * ctrl + b 将屏幕向文件头方向翻滚一整屏  
+  ctrl + f 将屏幕向文件尾方向翻滚一整屏  
+* 文本删除  
+dd: 删除当前行  
+ndd: 删除从当前行起的n行  
+* 恢复  
+u: 取消上一次的编辑动作(可多次)  
+* 搜索查找  
+/ ?   
+n: 继续向前查找  
+N: 与n反向查找  
