@@ -55,7 +55,7 @@ du
 * **复制目录及文件**  
 cp  
 * **创建空文件**  
-touch filename
+touch filename  
 echo > filename
 * **移动目录或文件及重命名**  
 mv  
@@ -100,7 +100,7 @@ alias f= "find/ -name" 方便全盘查找
   * find 和xargs  
 * **locate**  
 搜素包含特定字符串的文件及目录  
-* **grep**
+* **grep**  
 搜索文件中包含指定字符串的行  
 ## 时间及日期  
 * date  
@@ -163,7 +163,7 @@ net-tools和traceroute需要自己安装
  ping  
 * **联网状态**  
 netstat  
-* **查看或设置路由表 **  
+* **查看或设置路由表**  
 route  
 * **查看或临时修改主机名**  
 hostname  
@@ -260,7 +260,8 @@ nS: 用跟随在其后的字符串替换当前行起的n 行
   :1,5 co 20  
   将1到5行拷贝到20行下  
 * **文本块快速处理**  
-命令模式下输入： ctrl+v  
+命令模式下输入：  
+ctrl+v  
 e快速移动下个单词  
 $快速移动到行尾  
 * **vi中执行shell命令**  
