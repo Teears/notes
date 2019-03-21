@@ -91,10 +91,10 @@ diff file1 file2
 alias  
 alias psa="/bin/ps -aux" 方便查看进程  
 alias f= "find/ -name" 方便全盘查找  
-* **通配符**
+* **通配符**  
 \*代表任意个字符  
 ?代表一个字符  
-* ***find***
+* **find**  
 用来在指定目录下查找文件,并且将查找到的子目录和文件全部进行显示。  
   * find 和管道  
   * find 和xargs  
