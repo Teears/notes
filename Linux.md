@@ -267,3 +267,19 @@ $快速移动到行尾
 * **vi中执行shell命令**  
 :!command 不离开vi执行一条shell命令  
 :r!command 将command执行的结果放到当前行之后  
+## 文件系统  
+* **查询磁盘信息**  
+  * fdisk 列出所有安装的磁盘(包括未分区的)信息  
+  fdisk /dev/sdb  划分新的分区  
+  * lsblk \[-f\] 列出块设备信息/磁盘树形结构  
+  blkid \[设备\] 查询分区所采用的UUID和文件系统类型  
+  df \[hT\] 显示指定磁盘文件的可用空间 – 查询挂载情况  
+  fsck /dev/sdb1 检查并修复磁盘分区上的文件系统  
+  du -h 查看目录或文件占用空间情况  
+* **文件系统**  
+ls -l /lib/modules/`uname -r`/kernel/fs 查看Linux系统支持的文件系统  
+cat /proc/filesystems 查看系统已启用的文件系统  
+hostnamectl 查看Linux系统的发行版本  
+df -T 查看Linux系统的文件系统  
+file -s \[设备文件\] 查看Linux系统的文件系统  
+mkfs.xfs /dev/sdb1 将/dev/sdb1 格式化为xfs格式  
