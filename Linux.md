@@ -9,6 +9,7 @@ some notes for Linux
 [网络常用命令](#网络常用命令)  
 [shell使用](#shell使用)  
 [vi/vim](#vi/vim)  
+[文件系统](#文件系统)  
 
 ## 一些热键
 Ctrl+C 退出前台执行程序  
@@ -283,14 +284,14 @@ $快速移动到行尾
     df -T  
     file -s \[设备文件\]  
 * **磁盘分区步骤**  
-* 查询磁盘信息  
-* 为磁盘分区  
-fdisk /dev/sdb 划分新的分区  
-partprobe 重新读取分区信息，而不用重启系统  
-* 格式化分区  
-mkfs.xfs /dev/sdb1 将sdb1格式化为xfs  
-* 挂载分区  
-mount /dev/sdb1  /mnt  将sdb1挂载到mnt  
-* 开机自动挂载  
-vim /etc/fstab  修改配置文件  
-blkid /dev/sdb1 >> /etc/fstab 设置开机时自动载入新分区  
+  * 查询磁盘信息  
+  * 为磁盘分区  
+  fdisk /dev/sdb 划分新的分区  
+  partprobe 重新读取分区信息，而不用重启系统  
+  * 格式化分区  
+  mkfs.xfs /dev/sdb1 将sdb1格式化为xfs  
+  * 挂载分区  
+  mount /dev/sdb1  /mnt  将sdb1挂载到mnt  
+  * 开机自动挂载  
+  vim /etc/fstab  修改配置文件  
+  blkid /dev/sdb1 >> /etc/fstab 设置开机时自动载入新分区  
