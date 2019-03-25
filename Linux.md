@@ -268,18 +268,29 @@ $快速移动到行尾
 :!command 不离开vi执行一条shell命令  
 :r!command 将command执行的结果放到当前行之后  
 ## 文件系统  
-* **查询磁盘信息**  
-  * fdisk 列出所有安装的磁盘(包括未分区的)信息  
-  fdisk /dev/sdb  划分新的分区  
-  * lsblk \[-f\] 列出块设备信息/磁盘树形结构  
-  blkid \[设备\] 查询分区所采用的UUID和文件系统类型  
-  df \[hT\] 显示指定磁盘文件的可用空间 – 查询挂载情况  
+* **查询信息**  
+  * 磁盘信息    
+  fdisk  
+  lsblk \[-f\] 树形结构  
+  blkid \[设备\] UUID 文件系统类型  
+  df \[hT\] 磁盘可用空间 挂载  
+  du -h 目录或文件占用空间  
   fsck /dev/sdb1 检查并修复磁盘分区上的文件系统  
-  du -h 查看目录或文件占用空间情况  
-* **文件系统**  
-ls -l /lib/modules/`uname -r`/kernel/fs 查看Linux系统支持的文件系统  
-cat /proc/filesystems 查看系统已启用的文件系统  
-hostnamectl 查看Linux系统的发行版本  
-df -T 查看Linux系统的文件系统  
-file -s \[设备文件\] 查看Linux系统的文件系统  
-mkfs.xfs /dev/sdb1 将/dev/sdb1 格式化为xfs格式  
+  * 查看Linux系统信息  
+    * 发行版本  
+    hostnamectl  
+    * 文件系统  
+    df -T  
+    file -s \[设备文件\]  
+* **磁盘分区步骤**  
+* 查询磁盘信息  
+* 为磁盘分区  
+fdisk /dev/sdb 划分新的分区  
+partprobe 重新读取分区信息，而不用重启系统  
+* 格式化分区  
+mkfs.xfs /dev/sdb1 将sdb1格式化为xfs  
+* 挂载分区  
+mount /dev/sdb1  /mnt  将sdb1挂载到mnt  
+* 开机自动挂载  
+vim /etc/fstab  修改配置文件  
+blkid /dev/sdb1 >> /etc/fstab 设置开机时自动载入新分区  
