@@ -271,10 +271,10 @@ $快速移动到行尾
 ## 文件系统  
 * **查询信息**  
   * 磁盘信息    
-  fdisk  
+  fdisk -l  
   lsblk \[-f\] 树形结构  
   blkid \[设备\] UUID 文件系统类型  
-  df \[hT\] 磁盘可用空间 挂载  
+  df \[hT\] 磁盘可用空间 挂载情况  
   du -h 目录或文件占用空间  
   fsck /dev/sdb1 检查并修复磁盘分区上的文件系统  
   * 查看Linux系统信息  
@@ -292,6 +292,17 @@ $快速移动到行尾
   mkfs.xfs /dev/sdb1 将sdb1格式化为xfs  
   * 挂载分区  
   mount /dev/sdb1  /mnt  将sdb1挂载到mnt  
-  * 开机自动挂载  
-  vim /etc/fstab  修改配置文件  
-  blkid /dev/sdb1 >> /etc/fstab 设置开机时自动载入新分区  
+  mount -t ext4 /dev/sda5/ /mnt/sda 指定/dev/sda5是ext4文件系统并挂载到/mnt/sda目录  
+  mount -a 让挂载生效  
+  umount /dev/sda5 卸载/dev/sda5  
+  * 永久挂载  
+  vim /etc/fstab  修改配置文件，可挂载文件也可挂载uuid  
+* **swap分区**  
+  创建新分区:fdisk /dev dev/sdb  
+  识别分区：partprobe  
+  格式化:mkswap /dev/sdb5  
+  查看：blkid /dev/sdb5  
+  开机挂载：vim /dev/fstab  
+  启用：swapon  
+  重启生效：reboot  
+  查询内存和 swap 容量：free –m  
