@@ -9,7 +9,8 @@ some notes for Linux
 [网络常用命令](#网络常用命令)  
 [shell使用](#shell使用)  
 [vi/vim](#vi/vim)  
-[文件系统](#文件系统)  
+[磁盘及文件系统](#磁盘及文件系统)  
+[文件权限管理](#文件权限管理)  
 
 ## 一些热键
 Ctrl+C 退出前台执行程序  
@@ -268,7 +269,7 @@ $快速移动到行尾
 * **vi中执行shell命令**  
 :!command 不离开vi执行一条shell命令  
 :r!command 将command执行的结果放到当前行之后  
-## 文件系统  
+## 磁盘及文件系统  
 * **查询信息**  
   * 磁盘信息    
   fdisk -l  
@@ -302,3 +303,18 @@ $快速移动到行尾
   格式化为swap:mkswap /dev/sdb1  
   启用：swapon  
   查询内存和 swap 容量：free –m  
+## 文件权限管理  
+* 查看文件详情  
+ll  
+* r、w、x可以分别用4、2、1的二进制表示  
+* **修改文件权限**  
+  * 字母设定  
+  chmod \[u/g/o/a\] \[+/-/=\] \[r/w/x\] filename  
+  * 数字设定
+  chmod 755 fileName #7=4+2+1=>rwx 5=>r-x
+* **修改拥有者或所属组**  
+chown -R root:grp01 /tmp/src  
+修改/tmp/src目录的拥有者为root所属组为grp01，-R递归地遍历目录（对该目录下的也生效）  
+* **更改所属组**  
+chgrp -R grp01 /tmp/src  
+修改/tmp/src目录所属组为grp01  
