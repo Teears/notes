@@ -272,7 +272,7 @@ $快速移动到行尾
 * **查询信息**  
   * 磁盘信息    
   fdisk -l  
-  lsblk \[-f\] 树形结构  
+  lsblk \[-f\] 树形结构，可查看大小和挂载  
   blkid \[设备\] UUID 文件系统类型  
   df \[hT\] 磁盘可用空间 挂载情况  
   du -h 目录或文件占用空间  
@@ -298,11 +298,7 @@ $快速移动到行尾
   * 永久挂载  
   vim /etc/fstab  修改配置文件，可挂载文件也可挂载uuid  
 * **swap分区**  
-  创建新分区:fdisk /dev dev/sdb  
   识别分区：partprobe  
-  格式化:mkswap /dev/sdb5  
-  查看：blkid /dev/sdb5  
-  开机挂载：vim /dev/fstab  
+  格式化为swap:mkswap /dev/sdb1  
   启用：swapon  
-  重启生效：reboot  
   查询内存和 swap 容量：free –m  
