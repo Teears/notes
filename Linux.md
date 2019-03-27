@@ -11,6 +11,7 @@ some notes for Linux
 [vi/vim](#vi/vim)  
 [磁盘及文件系统](#磁盘及文件系统)  
 [文件权限管理](#文件权限管理)  
+[用户和用户组管理](#用户和用户组管理)  
 
 ## 一些热键
 Ctrl+C 退出前台执行程序  
@@ -318,3 +319,35 @@ chown -R root:grp01 /tmp/src
 * **更改所属组**  
 chgrp -R grp01 /tmp/src  
 修改/tmp/src目录所属组为grp01  
+# 用户和用户组管理  
+系统管理员UID为0，系统内建用户UID为1~499，自定义用户UID默认>500  
+用户管理相关的文件：  
+/etc/passwd 用户的配置文件  
+/etc/shadow 用户影子密码文件  
+用户组管理相关的文件：
+/etc/group  
+/etc/gshadow  
+* **用户操作**  
+  * 添加用户  
+  useradd \[-u/-d/-g/-G/-s\] 用户名  
+  newusers \[选项\] filename 批量添加用户，导入的文件格式必须和/etc/passwd一样  
+  * 删除用户  
+  userdel -r username 删除用户及其主目录  
+  * 设置密码  
+  #passwd username root设置用户设置密码  
+  #passwd root设置自己密码  
+  $passwd 用户设置自己密码  
+  echo mypwd | passwd --stdin username 非交互方式修改密码  
+  * 修改用户属性  
+  usermod –d /home/myusers username  
+  * id username  
+  查看用户UID，GID及所属用户组  
+* **ACL**  
+以针对任意指 定的用户/组分配 rwx 权限  
+getfacl 获取ACL权限  
+setfacl 设置某个文件/目录的ACL权限  
+chacl 修改ACL权限  
+setfacl -m u:u1:rw /etc/fstab 设置普通用户u1可以读写文件/etc/fstab  
+setfacl -m u:alice :--- /home/test.txt  设置普通用户alice不能读写文件  
+* **用户组**  
+groupadd \[-g/-f/-r\] groupname
