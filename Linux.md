@@ -330,6 +330,11 @@ chgrp -R grp01 /tmp/src
 * **用户操作**  
   * 添加用户  
   useradd \[-u/-d/-g/-G/-s\] 用户名  
+  -u UID  
+  -g GID  
+  -G 附属组  
+  -d 设置主目录  
+  -s 设置登陆shell  
   newusers \[选项\] filename 批量添加用户，导入的文件格式必须和/etc/passwd一样  
   * 删除用户  
   userdel -r username 删除用户及其主目录  
