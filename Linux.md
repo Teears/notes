@@ -350,4 +350,18 @@ chacl 修改ACL权限
 setfacl -m u:u1:rw /etc/fstab 设置普通用户u1可以读写文件/etc/fstab  
 setfacl -m u:alice :--- /home/test.txt  设置普通用户alice不能读写文件  
 * **用户组**  
-groupadd \[-g/-f/-r\] groupname
+  * groupadd \[选项\] groupname  
+  -g 指定组群的gid  
+  -f 如果组群存在,退出并显示错误  
+  -r 建立系统用户组  
+  * groupadd \[选项\] 新名称 旧名称  
+  -n 更改组名称  
+  -g 更改组GID  
+  * groupdel 组名称  
+  * gpassword \[选项\] groupname  
+  * chmod g+s dirname  
+  用户执行操作时临时拥有dirname的所属组权限  
+  t:如果文件设置了t权限则只有属主和root才能删除文件   
+  i:不可修改权限  
+  a:让目标文件只能追加  
+  
