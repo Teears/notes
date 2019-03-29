@@ -329,7 +329,7 @@ chgrp -R grp01 /tmp/src
 /etc/gshadow  
 * **用户操作**  
   * 添加用户  
-  useradd \[-u/-d/-g/-G/-s\] 用户名  
+  useradd \[选项\] 用户名  
   -u UID  
   -g GID  
   -G 附属组  
