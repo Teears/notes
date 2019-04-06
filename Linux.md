@@ -99,6 +99,21 @@ alias f= "find/ -name" 方便全盘查找
 ?代表一个字符  
 * **find**  
 用来在指定目录下查找文件,并且将查找到的子目录和文件全部进行显示。  
+find 搜索文件的命令格式:  
+find \[搜索范围\] \[匹配条件\]
+选项:  
+-name 根据名字查找  
+-size 根据文件大小查找, +,-:大于设置的大小,直接写大小是等于  
+-user 查找用户名的所有者的所有文件  
+-group 根据所属组查找相关文件  
+-type 根据文件类型查找(f文件,d目录,l软链接文件)  
+-inum 根据i节点查找  
+-amin 访问时间access  
+-cmin 文件属性change  
+-mmin 文件内容modify  
+全盘搜索文件名为file的文件  
+find / -name file  
+/代表是全盘搜索,也可以指定目录搜索  
   * find 和管道  
   * find 和xargs  
 * **locate**  
@@ -311,6 +326,7 @@ ll
 * **修改文件权限**  
   * 字母设定  
   chmod \[u/g/o/a\] \[+/-/=\] \[r/w/x\] filename  
+  chmod g+w /home/mysgared  
   * 数字设定
   chmod 755 fileName #7=4+2+1=>rwx 5=>r-x
 * **修改拥有者或所属组**  
