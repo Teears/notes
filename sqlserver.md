@@ -89,3 +89,30 @@ From Student
 Group By sdept  
 * Having  
 跟在Group By子句的后面,针对聚合函数的结果值进行筛选  
+
+**存在判断Exists**  
+不关心子查询的具体内容，因此用 Select \*  
+Select sno,sname  
+From Student  
+Where Exists  
+( Select * From SC Where SC.sno = Student.sno And grade = 100)  
+
+**块插入**  
+Insert Into SC  
+Select sno,’c05’,null  
+From Student  
+Where sdept = ‘CS’  
+
+**更新块**  
+Update SC  
+Set grade = grade+10  
+Where sno in  
+(select sno from student where sdept=‘CS’)  
+
+**example**  
+Select sname from student  
+where not exists  
+(select * from course  
+where not exists  
+(select * from sc  
+and cno=course.cno))  
