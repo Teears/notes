@@ -12,6 +12,7 @@ some notes for Linux
 [磁盘及文件系统](#磁盘及文件系统)  
 [文件权限管理](#文件权限管理)  
 [用户和用户组管理](#用户和用户组管理)  
+[网络配置命令](#网络配置命令)  
 
 ## 一些热键
 Ctrl+C 退出前台执行程序  
@@ -412,3 +413,39 @@ mkfs.xfs /dev/myvg/lv01
 mount -t xfs /dev/myvg/lv01 /mnt/it  
 逻辑卷扩容  
 lvextend -L +2G /dev/myvg/lv01  
+## 网络配置命令
+相关配置文件：  
+/etc/sysconfig/network-scripts/ifcfg-ens33 网卡配置文件  
+/etc/resolv.conf 设置DNS客户端的文件，指定DNS服务器  
+/etc/hosts 保存主机名和IP地址映射的静态文件, 本地DNS解析  
+systemctl restart network 重启网络  
+* **常用网络命令**  
+ip  
+ping  
+netstat 联网状态  
+hostname 主机名  
+hostnamectl 主机名及相关系统信息  
+* **域名查询**  
+nslookup 主机名或ip  
+dig 域名（推荐）  
+都需要安装命令：yum -y install bind-utils  
+* **网卡配置**  
+vim /etc/sysconfig/network-scripts/ifcfg-ens33  
+常见选项：  
+BOOTPROTO=static(静态IP)  
+IPADDR0=202.115.195.254  
+NETMASK=255.255.255.0  
+GATEWAY0=202.115.195.1  
+* **DNS配置**  
+vim /etc/resolv.conf  
+* **nmcli网络管理命令**  
+nmcli con 查看网络连接  
+nmcli dev 查看设备状态  
+  * nmcli con add/modify/del con-name “name” type “type” ifname “ifname” 添加/修改/删除连接  
+  为ens33添加新连接并设置ip：  
+  nmcli connection add con-name home type ethernet ifname ens33  
+  cnmcli con mod home ipv4.addresses 10.0.0.1/24  
+  nmcli con up home  
+nmcli con modify ens33 +ipv4.address '192.169.92.100/24' 添加或删除ip  
+nmcli con modify ens33 +ipv4.dns 10.0.0.10 添加或删除DNS  
+nmcli con modify ens33 +ipv4/gateway '192.168.92.1' 添加或删除网关  
