@@ -22,18 +22,15 @@ alter table <表名> alter column <列名> <数据类型> <约束>
 * 删除表中的某属性(某列)  
 alter table <表名> drop column <列名> <数据类型> <约束>  
 
-* 删除表中的某属性(某列)  
-alter  table <表名> drop column <列名> <数据类型> <约束>  
-
 ## DML——数据库的修改  
 * 插入数据  
 insert into student  
 values ( ‘01001’, ‘张三’,27, ‘M’, ‘CS’ )  
 insert into student ( sno , sage, sname)  
 values ( ‘01002’ , NULL, ‘李四’)  
-* 修改数据  
-delete from <表名> where <条件>  
 * 删除数据  
+delete from <表名> where <条件>  
+* 修改数据  
 update student  
 set sdept = ‘ma’, sage=sage+1  
 where sno = ‘001’  
